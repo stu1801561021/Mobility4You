@@ -1,16 +1,32 @@
 package cars.brand;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
+	
+//		FileManage.writetToFile(list);
+//		ArrayList<String> resultFromFile = FileManage.getStringsFromFile("C:\\Users\\Dani\\workspace\\bit\\Mobility4You\\cars.txt");
+//		
+//		for(String s : resultFromFile) {
+//			FileManage.createVehicle(s).toString();
+//		}
 		
-		ElectricCar elCar = new ElectricCar("Tesla", "Model 3", (short) 150, 50000, 3000.00f);
-		GasCar gasCar = new GasCar("Honda", "Civic", (short) 80, (short) 1.5, 18000.00f);
-		HybridCar hybCar = new HybridCar("Toyota", "Prius", (short) 1.5, (short) 50, 12000, 24000.00f);
+		String filePath = "C:\\Users\\Dani\\workspace\\bit\\Mobility4You\\cars.txt";
 		
-		System.out.println(elCar.printInfo());
-		System.out.println(gasCar.printInfo());
-		System.out.println(hybCar.printInfo());
+//		System.out.println(FileManage.getStringsFromFile(filePath));
+		
+		Vehicle mazdaobject = new GasCar("Mazda", "6", (short)120, (short)2, 28000f);
+		
+		ArrayList<Vehicle> list = new ArrayList<>();
+		list.add(mazdaobject);
+		
+		
+		FileManage.writeToFile(list);
+		ArrayList<String> resultFromFile = FileManage.getStringsFromFile(filePath);
+		for (String s : resultFromFile) {
+			FileManage.createVehicle(s).toString();
+		}
 	}
-
 }

@@ -4,11 +4,18 @@ public class Vehicle {
 	protected String brand;
 	protected String modelName;
 	protected short enginePower;
+	protected int price;
 	
 	public Vehicle(String brand, String modelName, short enginePower) {
 		this.brand = brand;
 		this.modelName = modelName;
 		this.enginePower = enginePower;
+	}
+	
+	public Vehicle(String brand, String modelName, int price) {
+		this.brand = brand;
+		this.modelName = modelName;
+		this.price = price;
 	}
 
 	public String getBrand() {
@@ -35,9 +42,10 @@ public class Vehicle {
 		this.enginePower = enginePower;
 	}
 
-	public String printInfo() {
+	@Override
+	public String toString() {
 		return "The brand: " + brand + 
 				"|| The model name: " + modelName + 
-				"|| The power of engine: " + enginePower + "KW";
+				"|| Price: " + price;
 	}
 }

@@ -3,17 +3,17 @@ package cars.brand;
 public class GasCar extends Vehicle{
 	
 	protected short engineDisplacement;
-	protected float price;
+	protected double price;
 
-	public GasCar(String brand, String modelName, short enginePower, short engineDisplacement, float price) {
+	public GasCar(String brand, String modelName, short enginePower, short engineDisplacement, double price) {
 		super(brand, modelName, enginePower);
 		this.engineDisplacement = engineDisplacement;
 		this.price = price;
 	}
 
 	@Override
-	public String printInfo() {
-		return super.printInfo() + " || Engine Displacement: " + engineDisplacement + "L" +
+	public String toString() {
+		return super.toString() + " || Engine Displacement: " + engineDisplacement + "L" +
 								   " || Price: " + price + "euro";
 	}
 	
@@ -26,12 +26,12 @@ public class GasCar extends Vehicle{
 	}
 
 	
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
 	
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
