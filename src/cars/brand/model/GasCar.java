@@ -1,11 +1,13 @@
-package cars.brand;
+package cars.brand.model;
 
-public class GasCar extends Vehicle{
+import cars.brand.model.Vehicle;
+
+public class GasCar extends Vehicle {
 	
-	protected short engineDisplacement;
+	protected double engineDisplacement;
 	protected double price;
 
-	public GasCar(String type, String brand, String modelName, short engineDisplacement, short enginePower, double price) {
+	public GasCar(String type, String brand, String modelName, double engineDisplacement, short enginePower, double price) {
 		super(type, brand, modelName, enginePower);
 		this.engineDisplacement = engineDisplacement;
 		this.price = price;
@@ -15,12 +17,17 @@ public class GasCar extends Vehicle{
 	public String toString() {
 		return super.toString() + engineDisplacement + "L, " + enginePower + "KW, " + price + " euro";
 	}
-	
-	public short getEngineDisplacement() {
+
+	@Override
+	public boolean equals(Vehicle vehicle) {
+		return super.equals(vehicle);
+	}
+
+	public double getEngineDisplacement() {
 		return engineDisplacement;
 	}
 
-	public void setEngineDisplacement(short engineDisplacement) {
+	public void setEngineDisplacement(double engineDisplacement) {
 		this.engineDisplacement = engineDisplacement;
 	}
 

@@ -1,6 +1,8 @@
-package cars.brand;
+package cars.brand.model;
 
-public class ElectricCar extends Vehicle{
+import cars.brand.model.Vehicle;
+
+public class ElectricCar extends Vehicle {
 	
 	protected int batteryCapacity;
 	protected double price;
@@ -10,16 +12,17 @@ public class ElectricCar extends Vehicle{
 		this.batteryCapacity = batteryCapacity;
 		this.price = price;
 	}
-	
+
 	@Override
 	public String toString() {
 		return super.toString() + enginePower + "KW, " + batteryCapacity + "Ah, " + price + " euro";
-		/*
-		return this.getClass().getSimpleName() + " || Battery Capacity: " + batteryCapacity + "Ah" +
-								   " || Price: " + price + "euro";
-		 */
 	}
-	
+
+	@Override
+	public boolean equals(Vehicle vehicle) {
+		return super.equals(vehicle);
+	}
+
 	public int getBatteryCapacity() {
 		return batteryCapacity;
 	}

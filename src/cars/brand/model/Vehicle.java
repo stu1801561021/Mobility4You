@@ -1,4 +1,4 @@
-package cars.brand;
+package cars.brand.model;
 
 public class Vehicle {
 	protected String type;
@@ -11,6 +11,10 @@ public class Vehicle {
 		this.brand = brand;
 		this.modelName = modelName;
 		this.enginePower = enginePower;
+	}
+
+	public boolean equals(Vehicle vehicle) {
+		return this.getType().equals(vehicle.getType());
 	}
 
 	public String getType() {
