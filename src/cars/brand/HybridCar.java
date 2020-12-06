@@ -6,8 +6,8 @@ public class HybridCar extends Vehicle {
 	protected int batteryCapacity;
 	protected double price;
 	
-	public HybridCar(String brand, String modelName, short enginePower, short engineDisplacement, int batteryCapacity, double price) {
-		super(brand, modelName, enginePower);
+	public HybridCar(String type, String brand, String modelName, short engineDisplacement, short enginePower, int batteryCapacity, double price) {
+		super(type, brand, modelName, enginePower);
 		this.engineDisplacement = engineDisplacement;
 		this.batteryCapacity = batteryCapacity;
 		this.price = price;
@@ -15,9 +15,7 @@ public class HybridCar extends Vehicle {
 	
 	@Override
 	public String toString() {
-		return super.toString() + " || Engine Displacement: " + engineDisplacement + "L" +
-								   " || Battery Capacity: " + batteryCapacity + "Ah" +
-								   " || Price: " + price + "euro";
+		return super.toString() + engineDisplacement + "L, " + enginePower + "KW, " + batteryCapacity + "Ah, " + price + " euro";
 	}
 	
 	public short getEngineDisplacement() {

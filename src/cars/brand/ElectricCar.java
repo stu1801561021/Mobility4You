@@ -5,16 +5,19 @@ public class ElectricCar extends Vehicle{
 	protected int batteryCapacity;
 	protected double price;
 
-	public ElectricCar(String brand, String modelName, short enginePower, int batteryCapacity, double price) {
-		super(brand, modelName, enginePower);
+	public ElectricCar(String type, String brand, String modelName, short enginePower, int batteryCapacity, double price) {
+		super(type, brand, modelName, enginePower);
 		this.batteryCapacity = batteryCapacity;
 		this.price = price;
 	}
 	
 	@Override
 	public String toString() {
-		return super.toString() + " || Battery Capacity: " + batteryCapacity + "Ah" +
+		return super.toString() + enginePower + "KW, " + batteryCapacity + "Ah, " + price + " euro";
+		/*
+		return this.getClass().getSimpleName() + " || Battery Capacity: " + batteryCapacity + "Ah" +
 								   " || Price: " + price + "euro";
+		 */
 	}
 	
 	public int getBatteryCapacity() {

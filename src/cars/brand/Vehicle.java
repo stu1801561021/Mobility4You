@@ -1,21 +1,24 @@
 package cars.brand;
 
 public class Vehicle {
+	protected String type;
 	protected String brand;
 	protected String modelName;
 	protected short enginePower;
-	protected int price;
-	
-	public Vehicle(String brand, String modelName, short enginePower) {
+
+	public Vehicle(String type, String brand, String modelName, short enginePower) {
+		this.type = type;
 		this.brand = brand;
 		this.modelName = modelName;
 		this.enginePower = enginePower;
 	}
-	
-	public Vehicle(String brand, String modelName, int price) {
-		this.brand = brand;
-		this.modelName = modelName;
-		this.price = price;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getBrand() {
@@ -44,8 +47,6 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		return "The brand: " + brand + 
-				"|| The model name: " + modelName + 
-				"|| Price: " + price;
+		return type + " " + brand + ", " + modelName + ", ";
 	}
 }

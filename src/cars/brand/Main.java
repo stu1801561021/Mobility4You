@@ -1,5 +1,10 @@
 package cars.brand;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Main {
@@ -17,16 +22,17 @@ public class Main {
 		
 //		System.out.println(FileManage.getStringsFromFile(filePath));
 		
-		Vehicle mazdaobject = new GasCar("Mazda", "6", (short)120, (short)2, 28000f);
+		Vehicle mazdaobject = new GasCar("GAS_CAR", "Mazda", "6", (short)1.5, (short)120, 28000);
 		
 		ArrayList<Vehicle> list = new ArrayList<>();
 		list.add(mazdaobject);
-		
-		
+
 		FileManage.writeToFile(list);
 		ArrayList<String> resultFromFile = FileManage.getStringsFromFile(filePath);
 		for (String s : resultFromFile) {
 			FileManage.createVehicle(s).toString();
 		}
+
+		Catalog.showCatalog();
 	}
 }

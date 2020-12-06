@@ -5,16 +5,15 @@ public class GasCar extends Vehicle{
 	protected short engineDisplacement;
 	protected double price;
 
-	public GasCar(String brand, String modelName, short enginePower, short engineDisplacement, double price) {
-		super(brand, modelName, enginePower);
+	public GasCar(String type, String brand, String modelName, short engineDisplacement, short enginePower, double price) {
+		super(type, brand, modelName, enginePower);
 		this.engineDisplacement = engineDisplacement;
 		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " || Engine Displacement: " + engineDisplacement + "L" +
-								   " || Price: " + price + "euro";
+		return super.toString() + engineDisplacement + "L, " + enginePower + "KW, " + price + " euro";
 	}
 	
 	public short getEngineDisplacement() {
