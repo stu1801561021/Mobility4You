@@ -13,6 +13,11 @@ public class Vehicle {
 		this.enginePower = enginePower;
 	}
 
+	@Override
+	public String toString() {
+		return type + " " + brand + ", " + modelName + ", ";
+	}
+
 	public boolean equals(Vehicle vehicle) {
 		return this.getType().equals(vehicle.getType());
 	}
@@ -49,8 +54,4 @@ public class Vehicle {
 		this.enginePower = enginePower;
 	}
 
-	@Override
-	public String toString() {
-		return type + " " + brand + ", " + modelName + ", ";
-	}
 }

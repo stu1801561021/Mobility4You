@@ -1,7 +1,5 @@
 package cars.brand.model;
 
-import cars.brand.model.Vehicle;
-
 public class ElectricCar extends Vehicle {
 	
 	protected int batteryCapacity;

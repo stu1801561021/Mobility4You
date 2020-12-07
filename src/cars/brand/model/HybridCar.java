@@ -1,14 +1,12 @@
 package cars.brand.model;
 
-import cars.brand.model.Vehicle;
-
 public class HybridCar extends Vehicle {
 	
-	protected double engineDisplacement;
+	protected float engineDisplacement;
 	protected int batteryCapacity;
 	protected double price;
 	
-	public HybridCar(String type, String brand, String modelName, double engineDisplacement, short enginePower, int batteryCapacity, double price) {
+	public HybridCar(String type, String brand, String modelName, float engineDisplacement, short enginePower, int batteryCapacity, double price) {
 		super(type, brand, modelName, enginePower);
 		this.engineDisplacement = engineDisplacement;
 		this.batteryCapacity = batteryCapacity;
@@ -25,11 +23,11 @@ public class HybridCar extends Vehicle {
 		return super.equals(vehicle);
 	}
 
-	public double getEngineDisplacement() {
+	public float getEngineDisplacement() {
 		return engineDisplacement;
 	}
 	
-	public void setEngineDisplacement(double engineDisplacement) {
+	public void setEngineDisplacement(float engineDisplacement) {
 		this.engineDisplacement = engineDisplacement;
 	}
 	
@@ -41,12 +39,10 @@ public class HybridCar extends Vehicle {
 		this.batteryCapacity = batteryCapacity;
 	}
 
-	
 	public double getPrice() {
 		return price;
 	}
 
-	
 	public void setPrice(double price) {
 		this.price = price;
 	}

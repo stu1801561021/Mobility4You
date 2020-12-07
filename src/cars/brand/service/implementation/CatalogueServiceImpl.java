@@ -5,32 +5,34 @@ import cars.brand.model.GasCar;
 import cars.brand.model.HybridCar;
 import cars.brand.model.Vehicle;
 import cars.brand.service.specification.CatalogueService;
-import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
+import static cars.brand.Constants.PATH_FILE;
+
 public class CatalogueServiceImpl implements CatalogueService {
 
     Scanner scanner = new Scanner(System.in);
 
-    private String filePath= "C:\\Users\\Dani\\workspace\\bit\\Mobility4You\\cars.txt";
-
     FileManageImpl fileManage = new FileManageImpl();
-    ArrayList<String> resultFromFile = fileManage.getStringsFromFile(filePath);
+    ArrayList<String> resultFromFile = fileManage.getStringsFromFile(PATH_FILE);
 
     ArrayList<Vehicle> listOfVehicles = new ArrayList<>();
 
     @Override
-    public void showCatalog() {
+    public void showCatalogue() {
+//        ArrayList<String> resultFromFile = fileManage.getStringsFromFile(PATH_FILE);
+
+        System.out.println("CATALOGUE\n=============================================================\n");
         for (String str : resultFromFile) {
             System.out.println(str);
         }
     }
 
     @Override
-    public void showSortedCatalog() {
+    public void showSortedCatalogue() {
         Comparator<Vehicle> byType = (Vehicle one, Vehicle two) -> one.getType().compareTo(two.getType());
         Comparator<Vehicle> byBrand = (Vehicle one, Vehicle two) -> one.getBrand().compareTo(two.getBrand()) ;
 
@@ -48,7 +50,7 @@ public class CatalogueServiceImpl implements CatalogueService {
     }
 
     @Override
-    public void showCatalogSortByType() {
+    public void showCatalogueSortByType() {
         Comparator<Vehicle> byType = (Vehicle one, Vehicle two) -> one.getType().compareTo(two.getType());
 
         for (String s : resultFromFile) {
@@ -66,7 +68,7 @@ public class CatalogueServiceImpl implements CatalogueService {
     }
 
     @Override
-    public void showCatalogSortByBrand() {
+    public void showCatalogueSortByBrand() {
         Comparator<Vehicle> byBrand = (Vehicle one, Vehicle two) -> one.getBrand().compareTo(two.getBrand()) ;
 
         for (String s : resultFromFile) {
@@ -130,9 +132,9 @@ public class CatalogueServiceImpl implements CatalogueService {
         System.out.print("Enter model name: ");
         modelName = scanner.next();
 
-        double engineDisplacement;
+        float engineDisplacement;
         System.out.print("Enter the engine displacement: ");
-        engineDisplacement = scanner.nextDouble();
+        engineDisplacement = scanner.nextFloat();
 
         short enginePower;
         System.out.print("Enter power of the engine: ");
@@ -164,9 +166,9 @@ public class CatalogueServiceImpl implements CatalogueService {
         System.out.print("Enter model name: ");
         modelName = scanner.next();
 
-        double engineDisplacement;
+        float engineDisplacement;
         System.out.print("Enter the engine displacement: ");
-        engineDisplacement = scanner.nextDouble();
+        engineDisplacement = scanner.nextFloat();
 
         short enginePower;
         System.out.print("Enter power of the engine: ");

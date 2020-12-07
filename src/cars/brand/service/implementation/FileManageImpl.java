@@ -14,9 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class FileManageImpl implements FileManageService {
+import static cars.brand.Constants.PATH_FILE;
 
-	private String filePath= "C:\\Users\\Dani\\workspace\\bit\\Mobility4You\\cars.txt";
+public class FileManageImpl implements FileManageService {
 
 	public ArrayList<String> getStringsFromFile(String pathToFile) {
 		ArrayList<String> list = new ArrayList<>();
@@ -26,7 +26,6 @@ public class FileManageImpl implements FileManageService {
 			while((temp = br.readLine()) != null) {
 				list.add(temp);
 			}
-			br.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -41,7 +40,7 @@ public class FileManageImpl implements FileManageService {
 		String brand = attributes[0].replace(type, "");
 		String modelName = attributes[1];
 
-		double engineDisplacement = 0;
+		float engineDisplacement = 0;
 		short enginePower = 0;
 		int batteryCapacity = 0;
 		double price = 0;
@@ -51,11 +50,11 @@ public class FileManageImpl implements FileManageService {
 			batteryCapacity = Integer.parseInt(attributes[3].replaceAll("[^\\d.]", ""));
 			price = Double.parseDouble(attributes[4].replaceAll("[^\\d.]", ""));
 		} else if(type.equals("GAS_CAR")) {
-			engineDisplacement = Double.parseDouble(attributes[2].replaceAll("[A-z]", ""));
+			engineDisplacement = Float.parseFloat(attributes[2].replaceAll("[A-z]", ""));
 			enginePower = Short.parseShort(attributes[3].replaceAll("[^\\d.]", ""));
 			price = Double.parseDouble(attributes[4].replaceAll("[^\\d.]", ""));
 		} else if (type.equals("HYBRID_CAR")) {
-			engineDisplacement = Double.parseDouble(attributes[2].replaceAll("[A-z]", ""));
+			engineDisplacement = Float.parseFloat(attributes[2].replaceAll("[A-z]", ""));
 			enginePower = Short.parseShort(attributes[3].replaceAll("[^\\d.]", ""));
 			batteryCapacity = Integer.parseInt(attributes[4].replaceAll("[^\\d.]", ""));
 			price = Double.parseDouble(attributes[5].replaceAll("[^\\d.]", ""));
@@ -76,7 +75,7 @@ public class FileManageImpl implements FileManageService {
 
 	public void writeToFile(ArrayList<Vehicle> list) {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(filePath, true));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(PATH_FILE, true));
 			for (Vehicle vehicle : list) {
 				bw.newLine();
 				bw.write(vehicle.toString());
